@@ -23,8 +23,7 @@ public class Food {
     public <SpiceType extends Class<? extends Spice>> Map<SpiceType, Integer> getSpiceCount() {
         Map<SpiceType, Integer> map = new HashMap<SpiceType,Integer>();
         for (Spice s: this.spices) {
-            Class clazz = s.getClass();
-            map.compute((SpiceType) clazz, (k,v) -> (v==null) ? 1 : v+1);
+            map.compute((SpiceType) s.getClass(), (k,v) -> (v==null) ? 1 : v+1);
         }
         return map;
     }
